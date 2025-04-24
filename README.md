@@ -3,7 +3,7 @@
 This repository includes the code and datasets for the paper:
 
 
-[Autonomous Assessment of LLM Truth Maintenance in Formal Translation Tasks without Human Labeling: Dynamic Datasets, Assessment Paradigms, and End-to-End Benchmarks](https://arxiv.org/abs/2403.18327)
+[Autonomous Evaluation of LLMs for Truth Maintenance and Reasoning Tasks](https://arxiv.org/abs/2410.08437)
 
 
 ## Installation
@@ -95,7 +95,7 @@ The pipeline should work out-of-the-box in that case.
 For new types of formal syntax, the appropriate verifier must also be included
 in `nlfs.verifier`.
 
-## Reproducing NeurIPS-24 results
+## Reproducing ICLR-25 results
 
 To reproduce our results reported in the main paper, use the following scripts.
 You can skip the LLM or the verifier by using the `--skip-nlfs` and `--skip-verify`
@@ -112,12 +112,28 @@ python3 evaluation.py --auto \
 
 Possible models are:
 ```
-gpt-3.5-turbo: ChatGPT
-gpt-4o: GPT-4
 claude: Anthropic Claude Sonnet
-phi-3: Microsoft Phi
-llama-3-8b: Meta Llama-3
-mistral: Mistral 7B v0.2
+deepseek-r1: DeepSeek R1
+falcon-40b: TII Falcon 40B Instruct
+gemma: Google Gemma 2 9B It
+gpt-3.5-turbo: OpenAI ChatGPT
+gpt-4o: OpenAI GPT-4o
+gpt-4o-mini: Open AIGPT-4o mini
+gpt-4o1: OpenAI GPT-o1
+gpt-4o1-mini: OpenAI GPT-o1 mini
+granite: IBM Granite 3.0 8B Instruct
+llama-3-8b: Meta Llama-3 8B Instruct
+llama-3-70b: Meta Llama-3 70B Instruct
+llama-3.1-8b: Meta Llama-3.1 8B Instruct
+llama-3.2-1b: Meta Llama-3.2 1B Instruct
+ministral: Mistral AI Ministral 8B Instruct 2410
+mistral: Mistral AI Mistral 7B Instruct v0.2
+phi-3: Microsoft Phi 3 Medium 4k Instruct
+phi-3.5-mini: Microsoft Phi 3.5 Mini Instruct
+vicuna-13b: LMSYS Vicuna 13B v1.5
+qwen-2.5-1.5b: Alibaba Cloud Qwen 2.5 1.5B Instruct
+qwen-2.5-14b: Alibaba Cloud Qwen 2.5 14B Instruct
+yi-1.5-34b: 01.AI Yi-1.5 34B Chat
 ```
 Note that you need to setup the api keys via environment variables as described
 above.
