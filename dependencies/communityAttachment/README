@@ -1,0 +1,52 @@
+Random generators of SAT instances:
+- Classical Random k-CNF
+- Community Attachment (formulas with modularity)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+1. Compile:
+$ make
+
+2. Usage:
+$ ./random -n <variables> -m <clauses> -k <clauseLength> -s <seed>
+$ ./commAttach -n <variables> -m <clauses> -k <clauseLength> -c <communities> -Q <modularity> -s <seed>
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A small script for computing the number of satisfiable/unsatisfiable instances
+across a range of clause/variable ratios (for a fixed number of variables):
+
+# Fix the number of variables:
+n=100;
+k=3;
+for ratio in `seq 3.5 0.1 4.5`;do 
+	m=$(echo "scale=0; $n*$ratio/1.0"|bc);
+	# Counters SAT and UNSAT:
+	let sat=0;
+	let unsat=0;
+	
+	# For every value, generate 20 random formulas with distinct seeds
+	for seed in {1..20};do 
+	
+		# "glucose" is a path to a SAT solver:
+		# for instance: https://www.labri.fr/perso/lsimon/downloads/softwares/glucose-syrup-4.1.tgz
+		isunsat=$(./random -k $k -n $n -m $m -s $seed | glucose | grep "^s UNSAT" | wc -l | awk '{print($1)}');
+		
+		# The previous step explicitely:
+		# CNF=random_${k}_${n}_${m}_${s}.cnf
+		# ./random -n $n -m $m -s $seed > $CNF
+		# glucose $CNF > $CNF.glucose.out
+		# isunsat=$(grep "^s UNSAT" $CNF.glucose.out | wc -l | awk '{print($1)}')
+		
+		# Count
+		if [ $isunsat == 1 ];then 
+			let unsat=$unsat+1; 
+		else 
+			let sat=$sat+1; 
+		fi; 
+	done; 
+	echo $n $m $sat $unsat; 
+done

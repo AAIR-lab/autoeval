@@ -1,0 +1,8 @@
+{
+  "prop_logic": {
+
+    "nl_to_fs": "Convert the description to a propositional formula.\nWhile using ( or ) for parentheses and only the operators | for disjunction, & for conjunction and - for negation. Return only the formula and no other text. You must use \"p1\", \"p2\" etc to describe each proposition. Do not use p0. Please expand the whole formula and do not use ellipsis.\n%s",
+    "fs_to_nl": "Convert this propositional formula to a natural language description that captures all information in the formula without skipping or generalizing descriptions of any term.\nI should be able to use your description to reconstruct the formula separately without referencing the original formula.\nDo not use any symbols or copy parts of the formula in your description.\n%s"
+  }
+
+}
