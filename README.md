@@ -134,8 +134,12 @@ qwen-2.5-1.5b: Alibaba Cloud Qwen 2.5 1.5B Instruct
 qwen-2.5-14b: Alibaba Cloud Qwen 2.5 14B Instruct
 yi-1.5-34b: 01.AI Yi-1.5 34B Chat
 ```
-Note that you need to setup the api keys via environment variables as described
-above.
+Note that you need to setup the api keys via environment variables as described above.
 
 For running open-source models, please setup a vLLM server using instructions
 [here](https://docs.vllm.ai/en/stable/serving/openai_compatible_server.html).
+
+## Reproducing ICLR-25 Figures
+
+Download and unzip the [AutoEval Dataset](https://www.dropbox.com/scl/fi/8n1afbrvhua6d0jj0a97s/autoeval_dataset.zip?rlkey=91aopkpcdxjhr0x7fwk38yadb&st=1q6upie7&dl=0). Then, in `generate_paper_figures.sh`, update the path to the dataset and the path to the directory the figures should be created in. Running this script will generate figures 3 through 23 from the paper, with the figures named accordingly.
+
