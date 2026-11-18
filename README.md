@@ -54,8 +54,7 @@ regex: Regular Expressions
 ```
 
 ### Packaged datasets
-The packaged datasets and their prompts can be found in the `dataset.zip`
-file. Please unzip the zip file to view the contents. We release our datasets
+The packaged datasets and their prompts can be found by download the [AutoEval Dataset](https://www.dropbox.com/scl/fi/8n1afbrvhua6d0jj0a97s/autoeval_dataset.zip?rlkey=91aopkpcdxjhr0x7fwk38yadb&st=1q6upie7&dl=0). Please unzip the zip file to view the contents. We release our datasets
 under the Creative Commons v4 license.
 
 The file hierarchy is as follows: `prompt_type -- batch_no -- dataset_type`.
